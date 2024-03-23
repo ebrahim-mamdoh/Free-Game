@@ -49,3 +49,39 @@ display: flex;
    transition: color 0.5s;
 }
 
+/***** Home *****/
+.home .card {
+    filter: grayscale(0.7);
+    transition: transform 0.5s, filter 0.5s 0.1s;
+ }
+ 
+ header img {
+    max-height: 30vh;
+    object-fit: cover;
+ }
+ 
+ .home .card:hover {
+    transform: scale(1.05);
+    filter: grayscale(0);
+ }
+ 
+ nav {
+    background-color: rgb(58, 73, 123) !important;
+ 
+    margin-inline: auto;
+    margin-top: -30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 0.7);
+ }
+ 
+ /***** End Home *****/
+ 
+ /***** Details *****/
+ .details {
+    background-color: #272729be;
+ 
+    backdrop-filter: blur(4px);
+    min-height: 100vh;
+ }
+ 
+ /***** End Details *****/
