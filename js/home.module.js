@@ -2,16 +2,20 @@ export class Home{
     constructor(){
       document.querySelectorAll('.nav-link').forEach((link)=>{
         link.addEventListener('click',()=>{
-            document.querySelector('.navbar-nav .active').classList.remove('active');
-            link.classList.add('active')
-
-          const category=link.dataset.category
-            console.log(category)
-            this.getGame(category)
+          this.changeActiveLink(link);
         })
       })
     };
 
+    async changeActiveLink(link){
+      document.querySelector('.navbar-nav .active').classList.remove('active');
+      link.classList.add('active')
+
+    const category=link.dataset.category
+      console.log(category)
+      // this.getGame(category)
+      const categoryData=await this.getGame(category);
+    }
 
 
     //function to get the api from ajx
