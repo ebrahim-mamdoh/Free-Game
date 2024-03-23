@@ -1,25 +1,30 @@
-export class Home{
-    constructor(){
-      document.querySelectorAll('.nav-link').forEach((link)=>{
-        link.addEventListener('click',()=>{
-          this.changeActiveLink(link);
-        })
+import { Ui } from "./ui.module.js";
+
+export class Home {
+  constructor() {
+    document.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        this.changeActiveLink(link);
       })
-    };
+    })
 
-    async changeActiveLink(link){
-      document.querySelector('.navbar-nav .active').classList.remove('active');
-      link.classList.add('active')
+    this.ui=new Ui()
+  };
 
-    const category=link.dataset.category
-      console.log(category)
-      // this.getGame(category)
-      const categoryData=await this.getGame(category);
-    }
+  async changeActiveLink(link) {
+    document.querySelector('.navbar-nav .active').classList.remove('active');
+    link.classList.add('active')
+
+    const category = link.dataset.category
+    console.log(category)
+    // this.getGame(category)
+    const categoryData = await this.getGame(category);
+this.ui.displayDataGame(categoryData)
+  }
 
 
-    //function to get the api from ajx
-  async  getGame(cat){
+  //function to get the api from ajx
+  async getGame(cat) {
     const options = {
       method: 'GET',
       headers: {
@@ -28,8 +33,8 @@ export class Home{
       }
     };
 
-    const api =await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${cat}`,options )
-    const response =await api.json();
+    const api = await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${cat}`, options)
+    const response = await api.json();
     console.log(response);
-    }
+  }
 }
