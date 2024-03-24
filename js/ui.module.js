@@ -17,7 +17,7 @@ export class Ui {
                  <figcaption>
      
                     <div class="hstack justify-content-between">
-                       <h3 class="h6 small">${data[i].title}</h3>
+                       <h3 class="h6 small text-white">${data[i].title}</h3>
                        <span class="badge text-bg-primary p-2">Free</span>
                     </div>
      
