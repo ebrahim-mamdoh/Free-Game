@@ -17,6 +17,16 @@ body{
 
 }
 
+ 
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+    font-family: "Nerko One", cursive;
+    color: var(--color-text) !important;
+ }
 
 .section-1{
 width: 100%;
