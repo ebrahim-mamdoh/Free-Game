@@ -1,4 +1,7 @@
 import { Ui } from "./ui.module.js";
+// import {Details} from "./details.module.js"
+import {Details} from "./details.module.js"
+
 
 export class Home {
   constructor() {
@@ -11,7 +14,10 @@ export class Home {
         this.changeActiveLink(link);
       })
     })
-   this.loading= document.querySelector('.loading')
+
+    this.loading = document.querySelector('.loading')
+    this.details= document.getElementById('details')
+    this.home=document.getElementById('home')
 
     this.ui = new Ui();
   }
@@ -27,7 +33,7 @@ export class Home {
 
     const category = link.dataset.category;
     console.log(category);
-     
+
     await this.handleCategoryData(category);
   }
 
@@ -37,11 +43,11 @@ export class Home {
       this.ui.displayDataGame(categoryData);
     } else {
       console.error("Invalid data provided!");
-    } 
+    }
   }
 
   async getGame(cat) {
-this.loading.classList.remove('d-none')
+    this.loading.classList.remove('d-none')
     const options = {
       method: 'GET',
       headers: {
@@ -54,8 +60,21 @@ this.loading.classList.remove('d-none')
     const response = await api.json();
     console.log(response);
     this.loading.classList.add('d-none')
-    return response;
+    this.ui.displayDataGame(response)
 
 
+    document.querySelectorAll('.card').forEach(card =>{
+      card.addEventListener('click', () => {
+     this.details.classList.remove('d-none')
+     this.home.classList.add('d-none')
+     this.detailsSection=new Details()
+
+      })
+    })
+
+    // return response;
   }
+
+
+
 }

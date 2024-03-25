@@ -12,7 +12,7 @@
 
 body{
     background-color: #272b30;
-    height: 1000px;
+
      font-family: "Comfortaa", cursive; 
 
 }
@@ -58,7 +58,7 @@ display: flex;
     color: white;
     position: sticky;
     top: 0;
-    margin-top: -30px;
+    margin: -30px auto 70px;
 }
 .navbar .nav-link{
     color: white;
@@ -73,6 +73,9 @@ display: flex;
 
 
 /***** Home *****/
+.home{
+   margin-bottom: 70px;
+}
 .home .card {
    filter: grayscale(0.7);
    transition: transform 0.5s, filter 0.5s 0.1s;

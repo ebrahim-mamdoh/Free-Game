@@ -41,4 +41,28 @@ export class Ui {
   
         document.getElementById("gameData").innerHTML = gamesBox;
      }
+
+     displayDetails(data) {
+      const content = `
+      <div class="col-md-4">
+      <img src="${data.thumbnail}" class="w-100" alt="image details" />
+   </div>
+   <div class="col-md-8">
+      <h3>Title: ${data.title}</h3>
+      <p>Category: <span class="badge text-bg-info"> ${data.genre}</span> </p>
+      <p>Platform: <span class="badge text-bg-info"> ${data.platform}</span> </p>
+      <p>Status: <span class="badge text-bg-info"> ${data.status}</span> </p>
+      <p class="small">${data.description}</p>
+      <a class="btn btn-outline-warning" target="_blank" href="${data.game_url}">Show Game</a>
+   </div>
+      
+      `;
+
+      document.getElementById("detailsContent").innerHTML = content;
+   }
+
+
 }
+
+
+
