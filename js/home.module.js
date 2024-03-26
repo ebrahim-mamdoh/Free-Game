@@ -67,7 +67,7 @@ export class Home {
       card.addEventListener('click', () => {
      this.details.classList.remove('d-none')
      this.home.classList.add('d-none')
-     this.detailsSection=new Details()
+     this.detailsSection=new Details(card.dataset.id)
 
       })
     })
